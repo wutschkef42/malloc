@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   proceed.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wutschkef <fwutschk@student.42.fr>         +#+  +:+       +#+        */
+/*   By: wutschkef <felix.wutschke@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/17 19:50:08 by wutschkef         #+#    #+#             */
-/*   Updated: 2017/06/27 00:47:33 by fwutschk         ###   ########.fr       */
+/*   Created: 2017/12/22 20:10:17 by wutschkef         #+#    #+#             */
+/*   Updated: 2017/12/22 20:10:23 by wutschkef        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-size_t	ft_strlen(const char *s)
+int		proceed(const char *format, size_t len, int ok, va_list params)
 {
-	const char	*t;
-
-	t = s;
-	while (*t)
-		t++;
-	return (t - s);
+	if (ok && *format == '%')
+		return (dispatch(parse_cspec(format, len), params));
+	else
+		return (ft_putstr(format, len));
 }

@@ -6,12 +6,12 @@
 /*   By: fwutschk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 21:30:51 by fwutschk          #+#    #+#             */
-/*   Updated: 2017/12/08 22:26:24 by fwutschk         ###   ########.fr       */
+/*   Updated: 2017/12/23 16:22:56 by wutschkef        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft.h"
-#include "./get_next_line.h"
+#include "libft.h"
+#include "get_next_line.h"
 
 static t_feed	*get_feed(t_feed *first, int fd)
 {

@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   check_token2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wutschkef <fwutschk@student.42.fr>         +#+  +:+       +#+        */
+/*   By: wutschkef <felix.wutschke@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/17 15:09:44 by wutschkef         #+#    #+#             */
-/*   Updated: 2017/06/17 15:11:59 by wutschkef        ###   ########.fr       */
+/*   Created: 2017/12/30 10:03:38 by wutschkef         #+#    #+#             */
+/*   Updated: 2017/12/30 10:04:59 by wutschkef        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
+int		is_wildcard(const char c)
 {
-	(*del)((*alst)->content, (*alst)->content_size);
-	ft_memdel((void **)alst);
+	if (ft_strchr("*", c))
+		return (1);
+	return (0);
 }

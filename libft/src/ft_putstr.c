@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wutschkef <fwutschk@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/18 20:43:44 by wutschkef         #+#    #+#             */
-/*   Updated: 2017/06/27 00:24:30 by fwutschk         ###   ########.fr       */
+/*   Created: 2017/06/17 06:08:39 by wutschkef         #+#    #+#             */
+/*   Updated: 2017/12/30 10:00:55 by wutschkef        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int			ft_putstr(const char *str, size_t len)
 {
-	while (*s)
-	{
-		if (*s == c)
-			return ((char *)s);
-		s++;
-	}
-	if (c == '\0' && *s == '\0')
-		return ((char *)s);
-	return (NULL);
+	write(1, str, len);
+	return (len);
 }

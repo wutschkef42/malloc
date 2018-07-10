@@ -16,6 +16,8 @@ char	*ft_strcpy(char *dst, const char *src)
 {
 	int i;
 
+	if (!src)
+		return (NULL);
 	i = 0;
 	while (src[i])
 	{

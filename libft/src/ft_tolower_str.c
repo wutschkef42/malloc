@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_tolower_str.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wutschkef <fwutschk@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/17 15:04:48 by wutschkef         #+#    #+#             */
-/*   Updated: 2017/06/27 00:20:37 by fwutschk         ###   ########.fr       */
+/*   Created: 2017/06/14 23:15:02 by wutschkef         #+#    #+#             */
+/*   Updated: 2017/12/30 09:58:08 by wutschkef        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+char	*ft_tolower_str(char *s)
 {
-	t_list	*new;
+	int i;
 
-	if (!(new = (t_list *)malloc(sizeof(t_list))))
-		return (NULL);
-	if (!content)
+	i = 0;
+	while (s[i])
 	{
-		new->content = NULL;
-		new->content_size = 0;
+		s[i] = ft_tolower(s[i]);
+		i++;
 	}
-	else
-	{
-		if (!(new->content = (void *)malloc(content_size)))
-			return (NULL);
-		ft_memcpy(new->content, content, content_size);
-		new->content_size = content_size;
-	}
-	new->next = NULL;
-	return (new);
+	return (s);
 }
