@@ -33,7 +33,46 @@
 
 #ifndef MALLOC_H
 # define MALLOC_H
+# include <unistd.h>
+
+# define GET_HEADER(node) (void*)node - sizeof(header_t)
+
+/* 
+** used by free to determine the size of an allocated region
+** immediately precedes the pointers returned by malloc 
+** free uses pointer arithmetic to get a reference to the header
+**
+** void free(void *ptr) {
+**	header_t *hptr = (void *)ptr - sizeof(header_t);
+**	...
+*/
+
+typedef struct	__header_t
+{
+	int	size;
+	int	magic;
+}				header_t;
 
 
+/*
+** free list node (address to free chunk of memory)
+** points to a free chunk of memory
+** stores size information about the free chunk
+** and a reference to the next free chunk (address of the next free chunk in the mmapped page)
+*/
+
+typedef struct	__node_t
+{
+	int				size;
+	struct __node_t	*next;
+}				node_t;
+
+
+/* 
+** malloc library api functions
+*/
+
+void			*ft_malloc(size_t size);
+void			ft_free(void *ptr);
 
 #endif
